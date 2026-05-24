@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EVENT HORIZON</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="header">
+  <div class="logo">EVENT HORIZON <span>GRAVITATIONAL LENSING OBSERVATORY · RK4</span></div>
+  <div class="hstats">
+    <div class="hs"><em>Schwarzschild Radius</em><b id="hRS">—</b></div>
+    <div class="hs"><em>BH Mass</em><b id="hMass">400</b></div>
+    <div class="hs"><em>Total Photons</em><b id="hPh">0</b></div>
+    <div class="hs"><em>FPS</em><b id="hFPS">—</b></div>
+  </div>
+</div>
+
+<div id="main">
+
+  <div id="left-panel">
+
+    <div>
+      <div class="section-title">Gravity</div>
+      <div class="srow">
+        <div class="slabel">Mass <b id="lMass">400</b></div>
+        <input type="range" id="sMass" min="50" max="6000" value="400" step="25">
+      </div>
+      <div class="srow">
+        <div class="slabel">Relativity <b id="lRel">1.0</b></div>
+        <input type="range" id="sRel" min="0" max="4" value="1" step="0.1">
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Photons</div>
+      <div class="srow">
+        <div class="slabel">Speed <b id="lSpd">2.0c</b></div>
+        <input type="range" id="sSpd" min="0.5" max="6" value="2" step="0.1">
+      </div>
+      <div class="srow">
+        <div class="slabel">Ray Count <b id="lRays">16</b></div>
+        <input type="range" id="sRays" min="2" max="40" value="16" step="1">
+      </div>
+      <div class="srow">
+        <div class="slabel">Spacing <b id="lSpace">26px</b></div>
+        <input type="range" id="sSpace" min="8" max="70" value="26" step="2">
+      </div>
+      <div class="srow">
+        <div class="slabel">Brightness <b id="lBright">0.80</b></div>
+        <input type="range" id="sBright" min="0.1" max="1.5" value="0.8" step="0.05">
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Display</div>
+      <button class="btn on" id="tGrid">⊞ Space Grid</button>
+      <button class="btn on" id="tStars">✦ Star Field</button>
+      <button class="btn" id="tAccretion">◎ Accretion Disc</button>
+      <button class="btn" id="tTrails">〜 Photon Trails</button>
+      <button class="btn" id="tEinstein">◯ Einstein Ring</button>
+    </div>
+
+  </div>
+
+  <div id="canvas-wrap">
+    <canvas id="sim"></canvas>
+  </div>
+
+  <div id="right-panel">
+
+    <div>
+      <div class="section-title">Telemetry</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+        <div class="metric"><em>Captured</em><b id="mCap">0</b></div>
+        <div class="metric"><em>Escaped</em><b id="mEsc">0</b></div>
+        <div class="metric"><em>Max Defl.</em><b id="mDefl">0°</b></div>
+        <div class="metric"><em>RS Radius</em><b id="mRS">—</b></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Capture Rate</div>
+      <div id="bar-wrap"><div id="bar-fill"></div></div>
+      <div style="font-size:10px;color:#5a5040;text-align:right;margin-top:4px;"><b id="capPct" style="color:#00d4ff;">0%</b> absorbed</div>
+    </div>
+
+    <div>
+      <div class="section-title">Photon Activity</div>
+      <canvas id="pgraph"></canvas>
+    </div>
+
+    <div>
+      <div class="section-title">Legend</div>
+      <div class="legend-item"><div class="ldot" style="background:#008cff;"></div>Direct photon</div>
+      <div class="legend-item"><div class="ldot" style="background:#00ffaa;"></div>Lensed photon</div>
+      <div class="legend-item"><div class="ldot" style="background:#ff5500;"></div>Event horizon</div>
+      <div class="legend-item"><div class="ldot" style="background:rgba(200,168,75,0.6);"></div>Photon sphere</div>
+      <div class="legend-item"><div class="ldot" style="background:rgba(0,140,170,0.7);"></div>Curvature grid</div>
+    </div>
+
+    <div>
+      <div class="section-title">BH Position</div>
+      <div style="font-size:11px;color:#5a5040;">X: <b id="bx" style="color:#00d4ff;">—</b></div>
+      <div style="font-size:11px;color:#5a5040;margin-top:4px;">Y: <b id="by" style="color:#00d4ff;">—</b></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="bottom">
+  <div class="bgrp">
+    <button class="bbtn on" id="btnPause">⏸ Pause</button>
+    <button class="bbtn" id="btnReset">↺ Reset</button>
+    <button class="bbtn" id="btnCapture">⬡ Save PNG</button>
+    <button class="bbtn red" id="btnSing">☯ Singularity</button>
+  </div>
+  <div class="readouts">
+    <div class="ro"><span>Integrator</span><span>RK4</span></div>
+    <div class="ro"><span>Step</span><span>0.50</span></div>
+    <div class="ro"><span>Frame</span><span id="rdFrame">0</span></div>
+  </div>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>
