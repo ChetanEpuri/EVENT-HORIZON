@@ -3,7 +3,7 @@
 An interactive, browser-based astrophysics simulation that visualizes the gravitational lensing effects of a black hole. This tool utilizes general relativity principles and numerical integration to ray-trace photon trajectories, demonstrating how extreme gravity warps space-time and distorts background light.
 
 ## 🚀 Live Demo
-Experience the real-time interactive simulation here: [https://github.io](https://github.io)
+Experience the real-time interactive simulation here: [https://github.io]([https://github.io](https://github.com/ChetanEpuri/EVENT-HORIZON))
 
 ---
 
